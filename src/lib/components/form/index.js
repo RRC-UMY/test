@@ -8,24 +8,35 @@ export function Form() {
         setTitle(e.target.value)
     };
 
-    const createTodo = () => {
-        const todoRef = firebase.database().ref('List');
-        const todo = {
-            title,
-            complete: false,
-        };
+    const handleClear = () => {
+        setTitle("");
+    }
 
-        todoRef.push(todo);
+    const createTodo = () => {
+        if (title === "") {
+            alert("You Must Enter the Username !!!!!");
+        } else {
+            const todoRef = firebase.database().ref('List');
+            const todo = {
+                title,
+                complete: false,
+            };
+
+            todoRef.push(todo);
+            handleClear();
+        }
+
+
     }
 
     return (
-    <div>
-        <p>
-            <label>username</label>
-            <input type='text' name="username" onChange={handleOnChange} value={title}></input>
-        </p>
-        <button onClick={createTodo}>Add to List</button>
-        
-    </div>
+        <div>
+            <p>
+                <label>Username</label>
+                <input class="form-control" type='text' name="username" onChange={handleOnChange} value={title} placeholder="Enter username"></input>
+            </p>
+            <button class="btn btn-primary" onClick={createTodo}>Add to List</button>
+
+        </div>
     );
 }
