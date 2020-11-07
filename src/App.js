@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { Form } from './lib/components/form';
 import List from './lib/components/List';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { NavBar } from './lib/components/navbar';
 
 function App() {
   return (
@@ -10,27 +11,7 @@ function App() {
     <Router>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
       <div className="App">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <Link class="navbar-brand" to="/">Navbar</Link>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <Link class="nav-link" to="/Form">Add</Link>
-              </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/List">List</Link>
-              </li>
-              <li class="nav-item">
-                <p></p>
-              </li>
-            </ul>
-            <span class="navbar-text">
-              Navbar text with an inline element</span>
-          </div>
-        </nav>
+        <NavBar/>
         <header className="App-header">
           <div>
             <Switch>
@@ -57,7 +38,11 @@ function App() {
 
 const Home = () => (
   <div>
-    <img src={logo} className="App-logo" alt="logo" />
+    <img src={logo} className="App-logo" alt="logo" /><br/>
+    <img src={logo} className="App-logo" alt="logo" /><br/>
+    <img src={logo} className="App-logo" alt="logo" /><br/>
+    <img src={logo} className="App-logo" alt="logo" /><br/>
+
     <p>
       Edit <code>src/App.js</code> and save to reload.</p>
     <a
